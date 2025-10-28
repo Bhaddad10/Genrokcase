@@ -52,25 +52,23 @@ Genrokcase/
 ```bash
 git clone https://github.com/Bhaddad10/Genrokcase.git
 cd Genrokcase
+
 2. Crie um ambiente virtual
-
-
 python -m venv venv
 source venv/Scripts/activate  # Windows
+
 3. Instale as dependências
-
-
 pip install -r requirements.txt
-4. Execute o servidor
 
+4. Execute o servidor
 python run.py
 A aplicação ficará disponível em:
 
 http://localhost:5000
 
- Endpoints
+Endpoints
  Cadastrar novo lead
-POST /recieve_leads
+ POST /recieve_leads
 
 Exemplo de corpo (JSON):
 
@@ -86,7 +84,7 @@ Resposta (200):
 {
   "mensagem": "Formulário recebido com sucesso!"
 }
-🔹 Listar todos os leads
+ Listar todos os leads
 GET /leads
 
 Resposta (200):
