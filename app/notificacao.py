@@ -46,6 +46,7 @@ def enviar_email(destinatario, assunto, mensagem):
     smtp_port = 587
     usuario = "haddad.bruno00@gmail.com"
     senha = ""  #senha de app deve ficar salva como variavel ambiente
+    #senha = os.getenv("GOOGLE_PASSWORD")
 
     msg = MIMEMultipart()
     msg['From'] = usuario
@@ -69,6 +70,7 @@ def enviar_slack(mensagem):
     Envia mensagem para Slack via webhook.
     """
     webhook_url = ""#Por segurança o url webhook deve ficar salva como variavel ambiente
+     #webhook_url = os.getenv("SLACK_WEBHOOK")
     if not webhook_url:
         print("Webhook não encontrado!")
         return
