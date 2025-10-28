@@ -68,8 +68,8 @@ A aplicação ficará disponível em:
 
 http://localhost:5000
 
-🧩 Endpoints
-🔹 Cadastrar novo lead
+ Endpoints
+ Cadastrar novo lead
 POST /recieve_leads
 
 Exemplo de corpo (JSON):
