@@ -47,7 +47,7 @@ def insert_lead(nome, telefone, email, assunto):
     ''', (nome, telefone, email, assunto))
     db.commit()
 
-# Consulta todos os leads
+# Consulta todos os leads em ordem de criação
 def get_all_leads():
     db = get_db()
     cursor = db.cursor()

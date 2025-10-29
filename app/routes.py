@@ -1,7 +1,10 @@
 from flask import Blueprint, request, jsonify
-from .db import insert_lead, get_all_leads, close_connection
-from .notificacao import notificar_novo_lead
+from app.db import insert_lead, get_all_leads, close_connection
+from app.notificacao import notificar_novo_lead
 from datetime import datetime
+from app.logger import logger
+from flask import render_template
+
 
 bp = Blueprint('routes', __name__)
 
@@ -10,7 +13,7 @@ bp = Blueprint('routes', __name__)
 def teardown_db(exception):
     close_connection(exception)
 
-# Rota para cadastrar um novo lead
+# Rota para cadastrar um novo lead, salva o lead e grava os logs
 @bp.route('/recieve_leads', methods=['POST'])
 def receber_lead():
     dados = request.get_json()
@@ -29,9 +32,11 @@ def receber_lead():
             'criado_em': datetime.now().strftime("%d/%m/%Y")
         })
 
-        return jsonify({'mensagem': 'Formulário recebido com sucesso!'}), 200
+        logger.info(f"Novo Lead Recebido: {dados.get('nome')} - {dados.get('email')}")
+        return jsonify({"status":"success","message":"Formulário recebido com sucesso!"}), 200
     except Exception as e:
-        print("Erro ao inserir lead:", e)
+        logger.error(f"Erro ao processar lead: {e}", exc_info=True)
+        #print("Erro ao inserir lead:", e)
         return jsonify({'erro': 'Ocorreu um erro ao salvar o lead'}), 500
 
 # Rota para listar todos os leads
@@ -43,3 +48,10 @@ def listar_leads():
     except Exception as e:
         print("Erro ao listar leads:", e)
         return jsonify({'erro': 'Ocorreu um erro ao listar os leads'}), 500
+    
+
+#rota para página web
+
+@bp.route('/form')
+def form():
+    return render_template('form.html')

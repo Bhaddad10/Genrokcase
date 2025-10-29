@@ -3,11 +3,11 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import requests
+from app.logger import logger
 
+#função que formata os textos das notificações
 def formatar_textos(lead):
-    """
-    Formata os textos para e-mail e Slack.
-    """
+
     nome = lead.get('nome', 'N/A')
     email = lead.get('email', 'N/A')
     telefone = lead.get('telefone', 'N/A')
@@ -25,7 +25,7 @@ def formatar_textos(lead):
         Data: {criado_em}
         """
 
-    # Texto Slack (Markdown)
+    # Texto Slack
     texto_slack = f"""
         *Novo Lead Recebido!*
         *Nome:* {nome}
@@ -39,13 +39,13 @@ def formatar_textos(lead):
 
 #envia email com as informações do lead
 def enviar_email(destinatario, assunto, mensagem):
-    """
-    Envia e-mail usando SMTP do Gmail.
-    """
+  
+    #Envia e-mail usando SMTP do Gmail.
+ 
     smtp_server = "smtp.gmail.com"
     smtp_port = 587
-    usuario = "haddad.bruno00@gmail.com"
-    senha = ""  #senha de app deve ficar salva como variavel ambiente
+    usuario = "haddad.bruno00@gmail.com"#Email de qual voce deve criar uma senha de app para desparar os emails
+    senha = ""  #senha de app deve ficar salva como variavel ambiente, gerada nas configurações de conta
     #senha = os.getenv("GOOGLE_PASSWORD")
 
     msg = MIMEMultipart()
@@ -60,16 +60,16 @@ def enviar_email(destinatario, assunto, mensagem):
         server.login(usuario, senha)
         server.send_message(msg)
         server.quit()
+        logger.info(f"Email enviado para: {destinatario}")
         print("E-mail enviado com sucesso!")
     except Exception as e:
+        logger.error(f"Erro ao enviar email: {e}", exc_info=True)
         print("Erro ao enviar:", e)
 
 #envia notificação para o slack com informações do lead
 def enviar_slack(mensagem):
-    """
-    Envia mensagem para Slack via webhook.
-    """
-    webhook_url = ""#Por segurança o url webhook deve ficar salva como variavel ambiente
+
+    webhook_url = ""#Por segurança o url webhook deve ficar salva como variavel ambiente, link gerado a partir do app criado no slack
      #webhook_url = os.getenv("SLACK_WEBHOOK")
     if not webhook_url:
         print("Webhook não encontrado!")
@@ -80,10 +80,13 @@ def enviar_slack(mensagem):
     try:
         response = requests.post(webhook_url, json=payload)
         if response.status_code == 200:
+            logger.info(f"Notificação enviada para slack")
             print("Notificação enviada para o Slack!")
         else:
+            logger.error(f"Falha ao enviar para Slack: {response.status_code} - {response.text}")
             print(f"Falha ao enviar: {response.status_code}, {response.text}")
     except Exception as e:
+        logger.error(f"Erro ao enviar notificação para Slack: {e}", exc_info=True)
         print("Erro ao enviar:", e)
 
 
