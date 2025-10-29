@@ -30,18 +30,18 @@ O objetivo principal é criar uma API capaz de **receber e armazenar leads** pro
 
 ##  Estrutura do Projeto
 
-Genrokcase/
-│
-app/
-init.py # Criação e configuração da aplicação Flask
-routes.py # Rotas da API (cadastrar e listar leads)
-db.py # Conexão e operações com o banco de dados SQLite
- notificacao.py # Envio de emails e notificações no Slack
-logger.py # Configuração de logs da aplicação
-│
- run.py # Ponto de entrada para iniciar o servidor
-requirements.txt # Dependências do projeto
-README.md # Documentação
+Genrokcase/;
+│;
+app/;
+init.py # Criação e configuração da aplicação Flask;
+routes.py # Rotas da API (cadastrar e listar leads);
+db.py # Conexão e operações com o banco de dados SQLite;
+ notificacao.py # Envio de emails e notificações no Slack;
+logger.py # Configuração de logs da aplicação;
+│;
+run.py # Ponto de entrada para iniciar o servidor;
+requirements.txt # Dependências do projeto;
+README.md # Documentação;
 
 
 ---
