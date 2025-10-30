@@ -1,5 +1,5 @@
 29-10-25 14:42:41 [INFO] Email enviado para: haddad.bruno00@gmail.com
-29-10-25 14:42:42 [INFO] Notificação enviada para slack: *Novo Lead Recebido!*
+29-10-25 14:42:42 [INFO] Notificaï¿½ï¿½o enviada para slack: *Novo Lead Recebido!*
         *Nome:* renato
         *Email:* renato@gmail.com
         *Telefone:* 11991485252
@@ -7,7 +7,7 @@
         *Data:* 29/10/2025
 29-10-25 14:42:42 [INFO] Novo Lead Recebido: renato - renato@gmail.com
 29-10-25 14:44:09 [INFO] Email enviado para: haddad.bruno00@gmail.com
-29-10-25 14:44:10 [INFO] Notificação enviada para slack: *Novo Lead Recebido!*
+29-10-25 14:44:10 [INFO] Notificaï¿½ï¿½o enviada para slack: *Novo Lead Recebido!*
         *Nome:* jose roberto
         *Email:* phadmrural@gmail.com
         *Telefone:* 11991485252
@@ -15,7 +15,7 @@
         *Data:* 29/10/2025
 29-10-25 14:44:10 [INFO] Novo Lead Recebido: jose roberto - phadmrural@gmail.com
 29-10-25 14:50:27 [INFO] Email enviado para: haddad.bruno00@gmail.com
-29-10-25 14:50:27 [INFO] Notificação enviada para slack: *Novo Lead Recebido!*
+29-10-25 14:50:27 [INFO] Notificaï¿½ï¿½o enviada para slack: *Novo Lead Recebido!*
         *Nome:* Bruno Haddad
         *Email:* bruno@gmail.com
         *Telefone:* 11991485252
@@ -23,7 +23,7 @@
         *Data:* 29/10/2025
 29-10-25 14:50:27 [INFO] Novo Lead Recebido: Bruno Haddad - bruno@gmail.com
 29-10-25 14:54:00 [INFO] Email enviado para: haddad.bruno00@gmail.com
-29-10-25 14:54:01 [INFO] Notificação enviada para slack: *Novo Lead Recebido!*
+29-10-25 14:54:01 [INFO] Notificaï¿½ï¿½o enviada para slack: *Novo Lead Recebido!*
         *Nome:* sdas
         *Email:* phadmrural@gmail.com
         *Telefone:* 11991485252
@@ -31,7 +31,7 @@
         *Data:* 29/10/2025
 29-10-25 14:54:01 [INFO] Novo Lead Recebido: sdas - phadmrural@gmail.com
 29-10-25 14:54:48 [INFO] Email enviado para: haddad.bruno00@gmail.com
-29-10-25 14:54:49 [INFO] Notificação enviada para slack: *Novo Lead Recebido!*
+29-10-25 14:54:49 [INFO] Notificaï¿½ï¿½o enviada para slack: *Novo Lead Recebido!*
         *Nome:* jose roberto
         *Email:* joseroberto@gmail.com
         *Telefone:* 11991485252
@@ -39,7 +39,7 @@
         *Data:* 29/10/2025
 29-10-25 14:54:49 [INFO] Novo Lead Recebido: jose roberto - joseroberto@gmail.com
 29-10-25 15:10:48 [INFO] Email enviado para: haddad.bruno00@gmail.com
-29-10-25 15:10:48 [INFO] Notificação enviada para slack: *Novo Lead Recebido!*
+29-10-25 15:10:48 [INFO] Notificaï¿½ï¿½o enviada para slack: *Novo Lead Recebido!*
         *Nome:* jose roberto
         *Email:* joseroberto@gmail.com
         *Telefone:* 11991485252
@@ -47,10 +47,28 @@
         *Data:* 29/10/2025
 29-10-25 15:10:48 [INFO] Novo Lead Recebido: jose roberto - joseroberto@gmail.com
 29-10-25 15:11:05 [INFO] Email enviado para: haddad.bruno00@gmail.com
-29-10-25 15:11:06 [INFO] Notificação enviada para slack: *Novo Lead Recebido!*
+29-10-25 15:11:06 [INFO] Notificaï¿½ï¿½o enviada para slack: *Novo Lead Recebido!*
         *Nome:* jose roberto
         *Email:* joseroberto@gmail.com
         *Telefone:* 11991485252
         *Assunto:* ola testando
         *Data:* 29/10/2025
 29-10-25 15:11:06 [INFO] Novo Lead Recebido: jose roberto - joseroberto@gmail.com
+29-10-25 23:13:43 [ERROR] Erro ao enviar email: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-3404be704efsm585466a91.0 - gsmtp')
+Traceback (most recent call last):
+  File "e:\Trabalho\Genrokcase\app\notificacao.py", line 60, in enviar_email
+    server.login(usuario, senha)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Bruno\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 750, in login
+    raise last_exception
+  File "C:\Users\Bruno\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 739, in login
+    (code, resp) = self.auth(
+                   ~~~~~~~~~^
+        authmethod, getattr(self, method_name),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        initial_response_ok=initial_response_ok)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Bruno\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 662, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-3404be704efsm585466a91.0 - gsmtp')
+29-10-25 23:13:43 [INFO] Novo Lead Recebido: jose roberto - joseroberto@gmail.com
