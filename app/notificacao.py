@@ -44,7 +44,7 @@ def enviar_email(destinatario, assunto, mensagem):
  
     smtp_server = "smtp.gmail.com"
     smtp_port = 587
-    usuario = "haddad.bruno00@gmail.com"#Email de qual voce deve criar uma senha de app para desparar os emails
+    usuario = ""#Email de qual voce deve criar uma senha de app para desparar os emails
     senha = ""  #senha de app deve ficar salva como variavel ambiente, gerada nas configurações de conta
     #senha = os.getenv("GOOGLE_PASSWORD")
 
@@ -97,7 +97,7 @@ def notificar_novo_lead(lead):
 
     # Envia e-mail
     enviar_email(
-        destinatario="haddad.bruno00@gmail.com",
+        destinatario="",#destinatário que irá receber os emails de lead
         assunto=f"Novo lead: {lead.get('nome','N/A')}",
         mensagem=texto_email
     )
