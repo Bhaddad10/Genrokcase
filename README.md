@@ -1,6 +1,6 @@
 # Genrok Case — Coletor de Leads
 
-Projeto desenvolvido como parte de desafios técnicos e projetos acadêmicos, demonstrando habilidades em **Python e Flask**.  
+Projeto desenvolvido como parte de desafios técnicos em **Python e Flask**.  
 
 O objetivo do projeto é criar uma API capaz de:
 
@@ -82,10 +82,10 @@ pip install -r requirements.txt
 python run.py
 ```
 
-A aplicação ficará disponível em:
+A aplicação ficará disponível para testes em:
 
 ```
-http://localhost:5000
+http://localhost:5000/form
 ```
 
 ---
@@ -147,6 +147,14 @@ A cada novo lead recebido:
 
 ---
 
+## Segurança
+
+- Por motivos de segurança, as credenciais reais (senha de e-mail e URL do webhook Slack) não estão incluídas no repositório.
+- Para o pleno funcionameto das notificações será necessário preencher as variaveis: *usuario*, *senha* (deve ser preenchida com uma variável ambiente por segurança), *webhook_url* (que também deve ser utilizada uma variável ambiente) e *destinatario*, todas no arquivo *notificacao.py*
+- Sem o preenchimento destas variáveis, ainda será possivel o envio de leads e a captura de logs.
+
+---
+
 ## Logs
 
 Todos os eventos importantes são registrados no arquivo de logs da aplicação, incluindo erros e ações de cadastro.
@@ -183,8 +191,6 @@ Arquitetura modular, simples e escalável, permitindo:
 
 **Bruno Haddad**  
 Desenvolvedor Python — Backend  
-Experiência acadêmica e em projetos pessoais com APIs, automações e integrações web.
-
 ---
 
 ## Licença
